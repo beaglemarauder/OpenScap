@@ -10,17 +10,17 @@ content_profile=/usr/share/xml/scap/ssg/content/ssg-centos8-ds-1.2.xml
 
 
 #Installing Openscap AND making a reports directory. 
-# func1(){
+ func1(){
 
-#     yum update -y
-#     yum upgrade -y
-#     sudo yum install openscap-scanner scap-security-guide aide -y
-#     ls -l /usr/share/xml/scap/ssg/content/
-#     echo "Select your preferred scap security guide for the OS"
-#     echo "To select, prepend the previous command with OSCAP INFO and append it with the SSG of your choice"
-#     #in this instance it has already been added to the variable, will get Ali to help me write it so that your input with read is used to populate the variable. 
+     yum update -y
+     yum upgrade -y
+     sudo yum install openscap-scanner scap-security-guide aide -y
+     ls -l /usr/share/xml/scap/ssg/content/
+     echo "Select your preferred scap security guide for the OS"
+     echo "To select, prepend the previous command with OSCAP INFO and append it with the SSG of your choice"
+     #in this instance it has already been added to the variable, will get Ali to help me write it so that your input with read is used to populate the variable. 
 
-# }
+ }
 
 #Make the reports directory if it doesn't exist and get the scanning information
 func2(){
