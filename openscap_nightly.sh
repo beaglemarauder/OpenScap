@@ -9,15 +9,38 @@ scan_profile="xccdf_org.ssgproject.content_profile_pci-dss"
 content_profile="/usr/share/xml/scap/ssg/content/ssg-centos8-ds-1.2.xml"
 
 
+#Some VM's come with the stuff baked in which may cause problems with the content so we need to check if the item's exist first. 
+prechecks(){
+dnf list scap-security-guide
+
+    if [ $? -eq 0 ] then;
+        echo "scap-security-guide is not installed"
+
+    else
+        sudo yum autoremove scap-security-guide -y
+    fi
+dnf list openscap-scanner
+    if [ $? -eq 0 ] then;
+        echo "openscap-scanner is not installed"
+    else
+        sudo yum autoremove openscap-scanner -y
+    fi
+dnf list aide
+    if [ $? -eq 0 ] then;
+        echo "aide is not installed"
+    else
+        sudo yum autoremove aide -y
+    fi
+}
 #Installing Openscap AND making a reports directory. 
 func1(){
 
     yum update -y
     yum upgrade -y
     sudo yum install openscap-scanner scap-security-guide aide -y
-    ls -l /usr/share/xml/scap/ssg/content/
-    echo "Select your preferred scap security guide for the OS"
-    echo "To select, prepend the previous command with OSCAP INFO and append it with the SSG of your choice"
+    #ls -l /usr/share/xml/scap/ssg/content/
+    #echo "Select your preferred scap security guide for the OS"
+    #echo "To select, prepend the previous command with OSCAP INFO and append it with the SSG of your choice"
     #in this instance it has already been added to the variable, will get Ali to help me write it so that your input with read is used to populate the variable. 
 
 }
@@ -33,7 +56,7 @@ func3(){
     sudo oscap xccdf eval \
     --profile  $scan_profile \
     --results-arf arf.xml \
-    --report $report_directory/securityreport_$(hostname)_$(date +%F_%T).txt \
+    --report $report_directory/securityreport_$(hostname)_$(date +%F_%T).html \
     "$content_profile"
 }
 
@@ -49,6 +72,10 @@ func3(){
 
 # }
 
+prechecks
 func1
 func2
 func3
+
+
+
