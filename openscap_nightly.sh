@@ -15,7 +15,6 @@ dnf list scap-security-guide
 
     if [ $? -eq 0 ] then;
         echo "scap-security-guide is not installed"
-
     else
         sudo yum autoremove scap-security-guide -y
     fi
