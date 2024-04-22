@@ -19,12 +19,14 @@ dnf list scap-security-guide
     else
         sudo yum autoremove scap-security-guide -y
     fi
+    
 dnf list openscap-scanner
     if [ $? -eq 0 ] then;
         echo "openscap-scanner is not installed"
     else
         sudo yum autoremove openscap-scanner -y
     fi
+    
 dnf list aide
     if [ $? -eq 0 ] then;
         echo "aide is not installed"
@@ -32,6 +34,7 @@ dnf list aide
         sudo yum autoremove aide -y
     fi
 }
+
 #Installing Openscap AND making a reports directory. 
 func1(){
 
