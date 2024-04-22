@@ -13,21 +13,19 @@ content_profile="/usr/share/xml/scap/ssg/content/ssg-centos8-ds-1.2.xml"
 prechecks(){
 dnf list scap-security-guide
 
-    if [ $? -eq 0 ] then;
+    if [[ $? -eq 0 ]] then;
         echo "scap-security-guide is not installed"
     else
         sudo yum autoremove scap-security-guide -y
     fi
-    
 dnf list openscap-scanner
-    if [ $? -eq 0 ] then;
+    if [[ $? -eq 0 ]] then;
         echo "openscap-scanner is not installed"
     else
         sudo yum autoremove openscap-scanner -y
     fi
-    
 dnf list aide
-    if [ $? -eq 0 ] then;
+    if [[ $? -eq 0 ]] then;
         echo "aide is not installed"
     else
         sudo yum autoremove aide -y
