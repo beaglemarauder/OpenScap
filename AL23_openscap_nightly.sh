@@ -95,7 +95,7 @@ func5(){
     #Move to the report directory for the script. 
     #cd home/ssm-user/OpenScap
     #run the email script using python sdk
-    sudo python3 send_mail_output.py
+    sudo python3 /home/ssm-user/OpenScap/send_mail_output.py
 }
 
 #prechecks
