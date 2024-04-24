@@ -72,7 +72,7 @@ func3(){
     --profile  $scan_profile \
     --results-arf arf.xml \
     --report $report_directory/securityreport_$(hostname)_$(date +%F_%T).html \
-    "$content_profile"
+    "$content_profile" || true
 }
 
 
