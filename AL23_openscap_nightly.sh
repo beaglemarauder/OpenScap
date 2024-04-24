@@ -84,16 +84,16 @@ func3(){
 
 #Sending the html report as an email to security folk
 func5(){
-    sudo  dnf install pip
+    sudo  dnf install pip -y
         if [[ $? -eq 1 ]] then
             echo "pip is already installed"
         fi 
-    sudo pip install boto
+    sudo pip install boto -y
         if [[ $? -eq 1 ]] then
             echo "boto is already installed"
         fi
     #Move to the report directory for the script. 
-    cd /home/ssm-user/OpenScap
+    cd home/ssm-user/OpenScap
     #run the email script using python sdk
     python3 send_mail.output.py
 }
