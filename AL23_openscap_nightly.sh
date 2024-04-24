@@ -4,7 +4,7 @@
 #This script assumes that OpenScap is installed but has included a function if not.
 
 #Variables
-report_directory="/usr/local/share/Openscapreports"
+report_directory="/var/www/html/Openscapreports"
 scan_profile="xccdf_org.ssgproject.content_profile_standard"
 content_profile="/usr/share/xml/scap/ssg/content/ssg-al2023-ds.xml"
 
@@ -51,6 +51,17 @@ func1(){
 
 #Make the reports directory if it doesn't exist and get the scanning information
 func2(){
+
+    #building the webserver using httpd
+    sudo dnf install httpd -y
+        if [[ $? -eq 1 ]] then
+            echo "httpd is installed"
+        fi
+    sudo systemctl start httpd
+    sudo systemctl enable httpd
+    sudo systemctl status httpd
+    sudo chmod 777 /var/www/html
+    #building the report directory on the apache web server
     sudo mkdir -p $report_directory
 }
 
@@ -73,6 +84,14 @@ func3(){
 
 #Sending the html report as an email to security folk
 func5(){
+    sudo  dnf install pip
+        if [[ $? -eq 1 ]] then
+            echo "pip is already installed"
+        fi 
+    sudo pip install boto
+        if [[ $? -eq 1 ]] then
+            echo "boto is already installed"
+        fi
     #Move to the report directory for the script. 
     cd /home/ssm-user/OpenScap
     #run the email script using python sdk
