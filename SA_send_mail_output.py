@@ -34,7 +34,7 @@ BODY_HTML = """<html>
 <head></head>
 <body>
   <h1>OpenScap Security Assessment Completed</h1>
-  <p>This email contains a link to the security report for your machine <a href='http://13.41.229.110/Openscapreports'</a> view your latest OpenScap Report here</p>
+  <p>This email contains a link to the security report for your machine <a href='http://35.178.167.184/Openscapreports'</a> view your latest OpenScap Report here</p>
   <p>Please select the latest report from the available options, they are date and timestamped.</p>
 </body>
 </html>
