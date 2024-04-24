@@ -88,7 +88,7 @@ func5(){
         if [[ $? -eq 1 ]] then
             echo "pip is already installed"
         fi 
-    sudo pip install boto3 -y
+    sudo pip install boto3
         if [[ $? -eq 1 ]] then
             echo "boto is already installed"
         fi
