@@ -5,8 +5,8 @@
 
 #Variables
 report_directory="/usr/local/share/Openscapreports"
-scan_profile="xccdf_org.ssgproject.content_profile_standard"
-content_profile="/usr/share/xml/scap/ssg/content/ssg-al2023-ds.xml"
+scan_profile="xccdf_org.ssgproject.content_profile_cis_server_l1"
+content_profile="/usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml"
 
 
 #Some VMs come with the stuff baked in which may cause problems with the content so we need to check if the item's exist first. 
@@ -36,10 +36,10 @@ func1(){
     yum update -y
     yum upgrade -y
     sudo yum install openscap-scanner scap-security-guide aide -y
-    cd ls -la /usr/share/xml/scap/ssg/content/
-    echo "Now run the folllowing command oscap info + {your chosen ssg profile}"
-    echo "For example oscap info /usr/share/xml/scap/ssg/content/ssg-al2023-ds.xml"
-    echo "You will be presented with a list of SSGs and you can choose one to scan"
+    #ls -la /usr/share/xml/scap/ssg/content/
+    # echo "Now run the folllowing command oscap info + {your chosen ssg profile}"
+    # echo "For example oscap info /usr/share/xml/scap/ssg/content/ssg-al2023-ds.xml"
+    # echo "You will be presented with a list of SSGs and you can choose one to scan"
     
     # echo "Select your preferred scap security guide for the OS"
     #     read -p "Select your SSG"> $chosen_ssg
@@ -85,3 +85,6 @@ func2
 func3
 #func4
 func5
+
+
+
