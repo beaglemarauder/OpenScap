@@ -88,14 +88,14 @@ func5(){
         if [[ $? -eq 1 ]] then
             echo "pip is already installed"
         fi 
-    sudo pip install boto -y
+    sudo pip install boto3 -y
         if [[ $? -eq 1 ]] then
             echo "boto is already installed"
         fi
     #Move to the report directory for the script. 
-    cd home/ssm-user/OpenScap
+    #cd home/ssm-user/OpenScap
     #run the email script using python sdk
-    python3 send_mail.output.py
+    python3 /home/ssm-user/OpenScap/send_mail.output.py
 }
 
 #prechecks
