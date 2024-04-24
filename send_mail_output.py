@@ -34,10 +34,8 @@ BODY_HTML = """<html>
 <head></head>
 <body>
   <h1>OpenScap Security Assessment Completed</h1>
-  <p>This email contains a link to the security report for your machine  
-    <a href='http://13.41.229.110/'>Amazon SES</a> using the
-    <a href='https://aws.amazon.com/sdk-for-python/'>
-      AWS SDK for Python (Boto)</a>.  </p>
+  <p>This email contains a link to the security report for your machine <a href='http://13.41.229.110/Openscapreports'</a> and was sent using Amazon SES.</p>
+  <p>Please select the latest report from the available options, they are date and timestamped.</p>
 </body>
 </html>
             """            
