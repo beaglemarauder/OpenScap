@@ -34,10 +34,10 @@ BODY_HTML = """<html>
 <head></head>
 <body>
   <h1>OpenScap Security Assessment Completed</h1>
-  <p>This email was sent with Amazon 
-    <a href='https://aws.amazon.com/ses/'>Amazon SES</a> using the
+  <p>This email contains a link to the security report for your machine  
+    <a href='http://13.41.229.110/'>Amazon SES</a> using the
     <a href='https://aws.amazon.com/sdk-for-python/'>
-      AWS SDK for Python (Boto)</a>. The next phase is to redevelop this script to send you the actual HTML output. </p>
+      AWS SDK for Python (Boto)</a>.  </p>
 </body>
 </html>
             """            
