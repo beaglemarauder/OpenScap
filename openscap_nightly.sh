@@ -74,7 +74,7 @@ func3(){
 #Sending the html report as an email to security folk
 func5(){
     #Move to the report directory for the script. 
-    cd /Users/Tom.Pepper/Documents/Bash/AWS_Testing
+    cd /home/ssm-user/OpenScap
     #run the email script using python sdk
     python3 send_mail.output.py
 }
@@ -85,6 +85,3 @@ func2
 func3
 #func4
 func5
-
-
-
