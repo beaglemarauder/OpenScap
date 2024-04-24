@@ -10,26 +10,26 @@ content_profile="/usr/share/xml/scap/ssg/content/ssg-al2023-ds.xml"
 
 
 #Some VMs come with the stuff baked in which may cause problems with the content so we need to check if the item's exist first. 
-prechecks(){
-dnf list scap-security-guide
-    if [[ $? -eq 1 ]] then
-        echo "scap-security-guide is installed"
-    else
-        sudo yum autoremove scap-security-guide -y
-    fi
-dnf list openscap-scanner
-    if [[ $? -eq 1 ]] then
-        echo "openscap-scanner is installed"
-    else
-        sudo yum autoremove openscap-scanner -y
-    fi
-dnf list aide
-    if [[ $? -eq 1 ]] then
-        echo "aide is installed"
-    else
-        sudo yum autoremove aide -y
-    fi
-}
+# prechecks(){
+# dnf list scap-security-guide
+#     if [[ $? -eq 1 ]] then
+#         echo "scap-security-guide is installed"
+#     else
+#         sudo yum autoremove scap-security-guide -y
+#     fi
+# dnf list openscap-scanner
+#     if [[ $? -eq 1 ]] then
+#         echo "openscap-scanner is installed"
+#     else
+#         sudo yum autoremove openscap-scanner -y
+#     fi
+# dnf list aide
+#     if [[ $? -eq 1 ]] then
+#         echo "aide is installed"
+#     else
+#         sudo yum autoremove aide -y
+#     fi
+# }
 #Installing Openscap AND making a reports directory. 
 func1(){
 
@@ -79,7 +79,7 @@ func5(){
     python3 send_mail.output.py
 }
 
-prechecks
+#prechecks
 func1
 func2
 func3
