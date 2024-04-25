@@ -84,7 +84,7 @@ func5(){
         fi
     
     #run the email script using python sdk
-    python3 send_mail.output_2.py
+    python3 send_mail_output_2.py
 }
 
 #prechecks
