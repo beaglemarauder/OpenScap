@@ -83,7 +83,7 @@ func5(){
         fi
     
     #run the email script using python sdk
-    python3 /home/ssm-user/OpenScap/send_mail.output_2.py
+    python3 send_mail.output_2.py
 }
 
 #prechecks
