@@ -44,7 +44,8 @@ func2(){
     aws s3api create-bucket --bucket openscap-reports --create-bucket-configuration LocationConstraint=eu-west-2
    
    #Make the report directory 
-   sudo mkdir -p $report_directory     
+   sudo mkdir -p $report_directory
+   sudo mkdir -p $arf_output    
 }
 
 #Performing the assessment
@@ -92,6 +93,3 @@ func2
 func3
 func4
 func5
-
-
-
