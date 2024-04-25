@@ -58,11 +58,7 @@ func3(){
     "$content_profile"
 }
  func4(){
-    aws s3api put-object 
-        --bucket openscap-reports \
-        --server-side-encryption AES256 \
-        --key securityreport.html \
-        --body $report_directory/securityreport_$(hostname)_$(date +%F_%T).html
+    aws s3api put-object --bucket openscap-reports --server-side-encryption AES256 --key securityreport.html --body $report_directory/securityreport_$(hostname)_$(date +%F_%T).html
  }
 
 
