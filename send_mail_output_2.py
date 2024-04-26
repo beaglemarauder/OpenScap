@@ -14,7 +14,7 @@ def generate_presigned_url(bucket_name, object_name, expiration=3600):
     # Create a session using your current credentials
     session = boto3.session.Session()
     # Get the S3 client using the session
-    s3_client = session.client('s3')
+    s3_client = session.client('s3', config=Config(signature_version='s3v4'))
 
     try:
         response = s3_client.generate_presigned_url('get_object',
