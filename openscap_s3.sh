@@ -4,7 +4,7 @@
 #This script assumes that OpenScap is installed but has included a function if not.
 
 #Variables
-report_directory="/user/ssm-user/OpenScap"
+report_directory="/user/ssm-user/OpenScap/SecurityReports"
 arf_output="/user/ssm-user/OpenScap/arf_outputs"
 scan_profile="xccdf_org.ssgproject.content_profile_standard"
 content_profile="/usr/share/xml/scap/ssg/content/ssg-al2023-ds.xml"
@@ -53,15 +53,13 @@ func3(){
 
     sudo oscap xccdf eval \
     --profile  $scan_profile \
-    --results-arf $arf_output/$(hostname)_arf.xml \
-    --report $report_directory/securityreport_$(hostname)_$(date +%F_%T).html \
+    --results-arf $arf_output/securityreport_arf.xml \
+    --report $report_directory/securityreport.html \
     "$content_profile"
 }
  func4(){
-    aws s3api put-object --bucket openscap-reports --server-side-encryption AES256 --key securityreport.html --body $report_directory/securityreport_$(hostname)_$(date +%F_%T).html
+    aws s3api put-object --bucket openscap-reports --server-side-encryption AES256 --key reports/securityreport.html --body /user/ssm-user/OpenScap/SecurityReports/securityreport.html
  }
-
-
 
 sleep 15s
 
@@ -80,7 +78,7 @@ func5(){
         fi
     
     #run the email script using python sdk
-    python3 send_mail_output_2.py
+    python3 home/ssm-user/OpenScap/send_mail_output_2.py
 }
 
 #prechecks
