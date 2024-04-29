@@ -1,13 +1,12 @@
-#!/bin/bash
-
-#This script will run the openscap security assessment against the machine as listed in the profile, we'll then automate the hourly run and report using cron.
-#This script assumes that OpenScap is installed but has included a function if not.
+#!/usr/bin/env bash
 
 #Variables
 report_directory="/user/ssm-user/OpenScap/SecurityReports"
 arf_output="/user/ssm-user/OpenScap/arf_outputs"
 scan_profile="xccdf_org.ssgproject.content_profile_standard"
 content_profile="/usr/share/xml/scap/ssg/content/ssg-al2023-ds.xml"
+file_name="securityreport_$(hostname)_$(date +%F_%T).html"
+arf_report="securityreport_arf_$(hostname)_$(date +%F_%T).xml"
 
 
 #Some VMs come with the stuff baked in which may cause problems with the content so we need to check if the item's exist first. 
@@ -53,27 +52,29 @@ func3(){
 
     sudo oscap xccdf eval \
     --profile  $scan_profile \
-    --results-arf $arf_output/securityreport_arf.xml \
-    --report $report_directory/securityreport.html \
+    --results-arf $arf_output/$arf_report \
+    --report $report_directory/$file_name \
     "$content_profile"
 }
  func4(){
     aws s3api put-object --bucket openscap-reports --server-side-encryption AES256 --key reports/securityreport.html --body /user/ssm-user/OpenScap/SecurityReports/securityreport.html
  }
 
+
+
 sleep 15s
 
 #Sending the html report as an email to security folk
 func5(){
     sudo  dnf install pip -y
-        if [[ $? -eq 1 ]] then
+        if [[ $? -eq 0 ]] then
             echo "pip is already installed"
         fi 
 
     sleep 10s
 
     sudo pip install boto3
-        if [[ $? -eq 1 ]] then
+        if [[ $? -eq 0 ]] then
             echo "boto is already installed"
         fi
     
