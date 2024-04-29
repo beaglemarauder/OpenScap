@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
 SENDER = "tompepper20@gmail.com"
 RECIPIENT = "tompepper20@gmail.com"
-AWS_REGION = "eu-west-2"
+AWS_REGION = "us-east-1"
 SUBJECT = "Security Assessment Completed with OpenScap"
 
 # The email body for recipients with non-HTML email clients.
