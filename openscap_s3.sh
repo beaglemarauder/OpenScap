@@ -5,9 +5,10 @@ report_directory="/user/ssm-user/OpenScap/SecurityReports"
 arf_output="/user/ssm-user/OpenScap/arf_outputs"
 scan_profile="xccdf_org.ssgproject.content_profile_standard"
 content_profile="/usr/share/xml/scap/ssg/content/ssg-al2023-ds.xml"
-file_name="securityreport_$(hostname)_$(date +%F_%T).html"
-arf_report="securityreport_arf_$(hostname)_$(date +%F_%T).xml"
+file_name="securityreport.html"
+arf_report="securityreport_arf.xml"
 
+#_$(hostname)_$(date +%F_%T)
 
 #Some VMs come with the stuff baked in which may cause problems with the content so we need to check if the item's exist first. 
 # prechecks(){
